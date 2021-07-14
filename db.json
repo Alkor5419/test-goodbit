@@ -1,0 +1,16 @@
+{
+  "posts": [
+    { "id": 1, "title": "Post 1", "body": "some comment" },
+    { "id": 2, "title": "Post 2", "body": "some comment" },
+    { "id": 3, "title": "Post 3", "body": "some comment" }
+  ],
+  "comments": [
+    { "id": 1, "postId": 1, "text": "some comment" },
+    { "id": 2, "postId": 1, "text": "some comment+1" },
+    { "id": 3, "postId": 2, "text": "Hello" },
+    { "id": 4, "postId": 3, "text": "Good comment" }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
