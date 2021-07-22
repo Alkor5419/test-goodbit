@@ -174,6 +174,10 @@ export const commentsSelector = createSelector(
   selectSelf,
   (state) => state.comments
 );
+export const isLoading = createSelector(
+  selectSelf,
+  (state) => state.loading
+);
 
 export default postInfoSlice.reducer;
 

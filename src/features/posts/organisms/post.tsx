@@ -16,10 +16,11 @@ import {
   asyncUpdatePost,
 } from "../model/posts-slice";
 
-const CardInput = styled.input`
-  border: 0;
+const CardInput = styled.input<InputProps>`
+  border: ${(props) => (props.isEditing ? "1" : "0")};
   background-color: #fff;
-  width: 90%;
+  width: 500px;
+  border-radius: 5px;
 `;
 const HiddenInput = styled.input`
   display: none;
@@ -28,6 +29,9 @@ const BodyWrap = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+type InputProps = {
+  isEditing: boolean;
+};
 type Props = {
   id: number;
   title: string;
@@ -62,6 +66,7 @@ export const Post: React.FC<Props> = ({
             defaultValue={title}
             {...register("title")}
             disabled={isEditing ? false : true}
+            isEditing={isEditing}
           />
         }
         extra={
@@ -83,7 +88,7 @@ export const Post: React.FC<Props> = ({
             />
           </Space>
         }
-        style={{ width: 700, marginTop: 16 }}
+        style={{ marginTop: 16 }}
       >
         <BodyWrap>
           <CardInput
@@ -91,6 +96,7 @@ export const Post: React.FC<Props> = ({
             defaultValue={body}
             {...register("body")}
             disabled={isEditing ? false : true}
+            isEditing={isEditing}
           />
           <Link to={`/posts/${id}`}>Подробнее</Link>
         </BodyWrap>

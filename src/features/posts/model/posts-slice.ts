@@ -3,6 +3,7 @@ import {
   PayloadAction,
   createAsyncThunk,
   createDraftSafeSelector,
+  createSelector,
 } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "app/store";
 import {
@@ -134,6 +135,10 @@ const selectSelf = (state: RootState) => state.postsReducer;
 export const postsSelector = createDraftSafeSelector(
   selectSelf,
   (state) => state.posts
+);
+export const isLoading = createSelector(
+  selectSelf,
+  (state) => state.loading
 );
 
 export default postsSlice.reducer;

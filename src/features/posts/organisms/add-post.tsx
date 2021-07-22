@@ -12,13 +12,23 @@ import {
   asyncUploadPost,
   Posts,
   postsSelector,
+  isLoading,
 } from "../model/posts-slice";
+import { Spin } from "antd";
 
 const FormWrap = styled.form`
   display: flex;
   justify-content: space-between;
 `;
-
+const AddPostInput = styled.input`
+  border-radius: 5px;
+`;
+const SpinWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+`;
 type FormData = {
   title: string;
   body: string;
@@ -34,6 +44,7 @@ export const AddPost = () => {
   }, [dispatch]);
 
   const posts = useAppSelector(postsSelector);
+  const loadingStatus = useAppSelector(isLoading);
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
@@ -48,14 +59,14 @@ export const AddPost = () => {
 
       <FormWrap onSubmit={onSubmit}>
         <label htmlFor="title">Title</label>
-        <input
+        <AddPostInput
           type="text"
           {...register("title")}
           id="title"
         />
 
         <label htmlFor="body">Body</label>
-        <input
+        <AddPostInput
           type="text"
           {...register("body")}
           id="body"
@@ -63,16 +74,21 @@ export const AddPost = () => {
 
         <input type="submit" value="Отправить" />
       </FormWrap>
-
-      {posts.map((el: Posts) => (
-        <Post
-          key={el.id}
-          id={el.id}
-          title={el.title}
-          body={el.body}
-          isEditing={el.isEditing!}
-        />
-      ))}
+      {loadingStatus ? (
+        <SpinWrap>
+          <Spin size="large" />
+        </SpinWrap>
+      ) : (
+        posts.map((el: Posts) => (
+          <Post
+            key={el.id}
+            id={el.id}
+            title={el.title}
+            body={el.body}
+            isEditing={el.isEditing!}
+          />
+        ))
+      )}
     </>
   );
 };
