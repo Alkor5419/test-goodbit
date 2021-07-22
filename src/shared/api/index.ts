@@ -1,0 +1,9 @@
+export { delPost } from "./delete-post";
+export { makePost } from "./make-post";
+export { fetchPosts } from "./fetch-posts";
+export { updatePost } from "./update-post";
+export { fetchComments } from "./fetch-comments";
+export { fetchPost } from "./fetch-post";
+export { makeComment } from "./make-comment";
+export { updateComment } from "./update-comment";
+export { delComment } from "./delete-comment";

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const CheckIcon = () => {
+export const CheckIcon: React.FC = () => {
   return (
     <svg
       height="1em"

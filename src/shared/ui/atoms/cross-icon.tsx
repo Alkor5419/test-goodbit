@@ -1,8 +1,11 @@
 import React from "react";
-
-export const CrossIcon = () => {
+type Props = {
+  onClick: () => void;
+};
+export const CrossIcon: React.FC<Props> = ({ onClick }) => {
   return (
     <svg
+      onClick={onClick}
       width="1em"
       height="1em"
       viewBox="0 0 14 14"

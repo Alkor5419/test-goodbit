@@ -1,8 +1,11 @@
 import React from "react";
-
-export const EditIcon = () => {
+type Props = {
+  onClick: () => void;
+};
+export const EditIcon: React.FC<Props> = ({ onClick }) => {
   return (
     <svg
+      onClick={onClick}
       height="1em"
       viewBox="0 0 492.493 492"
       width="1em"

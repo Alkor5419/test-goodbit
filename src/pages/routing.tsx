@@ -13,7 +13,11 @@ export const Routing: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/posts" component={Posts} />
-        {/* <Route exact path="/posts/{id}" component={PostInfo} /> */}
+        <Route
+          exact
+          path="/posts/:id"
+          component={PostInfo}
+        />
         <Redirect to="/posts" />
       </Switch>
     </BrowserRouter>
