@@ -1,4 +1,5 @@
 # test-goodbit
+Ссылка на задание https://gist.github.com/monrostar/af7d88c8e9411958eff4c657283f2a5c
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
